@@ -5,3 +5,6 @@ dist/
 .env.local
 *.log
 .vscode/
+
+# Frontend secrets/config (never commit)
+frontend/.env
