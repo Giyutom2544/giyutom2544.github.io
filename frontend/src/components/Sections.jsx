@@ -1,5 +1,5 @@
-import { lazy, Suspense, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Fragment, lazy, Suspense } from 'react';
+import { motion } from 'framer-motion';
 import { about, education, experience, hero, honors, links, projects, skills } from '../data/site';
 import { usePrefersReducedMotion } from '../lib/hooks';
 import { scrollToId } from '../lib/scroll';
@@ -8,25 +8,57 @@ import { Item, Section, SpotlightCard, Tags } from './ui';
 const StarField = lazy(() => import('./StarField'));
 const ease = [0.22, 1, 0.36, 1];
 
+// Splits text into words that fade and rise in one after another.
+function Words({ text, start = 0, step = 0.06, reduced }) {
+  return text.split(' ').map((word, i) => (
+    <Fragment key={`${word}-${i}`}>
+      {i > 0 && ' '}
+      <motion.span
+        className="word"
+        initial={reduced ? false : { opacity: 0, y: '0.6em', filter: 'blur(6px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.8, delay: start + i * step, ease }}
+      >
+        {word}
+      </motion.span>
+    </Fragment>
+  ));
+}
+
 export function Hero() {
   const reduced = usePrefersReducedMotion();
-  const rise = (delay) =>
-    reduced ? {} : { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1, delay, ease } };
+  const fade = (delay) =>
+    reduced ? {} : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1, delay, ease } };
   return (
     <header id="top" className="hero">
       <Suspense fallback={null}>
         <StarField />
       </Suspense>
       <div className="hero-inner">
-        <motion.p className="motto" {...rise(0.1)}>
-          {hero.motto}
-        </motion.p>
-        <motion.h1 {...rise(0.2)}>
-          {hero.first} <em>{hero.last}</em>
-        </motion.h1>
-        <motion.p className="tagline" {...rise(0.35)}>
-          {hero.tagline}
-        </motion.p>
+        <div className="hero-text">
+          <motion.p className="motto" {...fade(0.05)}>
+            {hero.motto}
+          </motion.p>
+          <h1 aria-label={`${hero.first} ${hero.last}`}>
+            <span aria-hidden="true">
+              <Words text={hero.first} start={0.15} reduced={reduced} />{' '}
+              <em>
+                <Words text={hero.last} start={0.3} reduced={reduced} />
+              </em>
+            </span>
+          </h1>
+          <p className="tagline">
+            <Words text={hero.tagline} start={0.55} step={0.035} reduced={reduced} />
+          </p>
+        </div>
+        <motion.div
+          className="hero-photo"
+          initial={reduced ? false : { opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.25, ease }}
+        >
+          <img src={hero.photo.src} alt={hero.photo.alt} width="800" height="800" fetchPriority="high" />
+        </motion.div>
       </div>
       <a
         href="#about"
@@ -53,8 +85,12 @@ export function About() {
           ))}
         </Item>
         <Item>
-          <h3 className="sub">Interests</h3>
-          <Tags items={about.interests} />
+          <h3 className="sub">Currently</h3>
+          <ul className="current">
+            {about.current.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
         </Item>
       </div>
     </Section>
@@ -71,7 +107,6 @@ export function Education() {
             <div>
               <h3>{e.school}</h3>
               <p>{e.detail}</p>
-              {e.note && <p className="muted">{e.note}</p>}
             </div>
           </Item>
         ))}
@@ -80,75 +115,16 @@ export function Education() {
   );
 }
 
-export function Skills() {
-  return (
-    <Section id="skills" eyebrow="03" title="Skills">
-      <div className="skills-grid">
-        {Object.entries(skills).map(([group, items]) => (
-          <Item key={group}>
-            <h3 className="sub">{group}</h3>
-            <Tags items={items} />
-          </Item>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function ExperienceCard({ job }) {
-  const [open, setOpen] = useState(false);
-  const id = `more-${job.role.replace(/\W+/g, '-').toLowerCase()}`;
-  return (
-    <SpotlightCard as="article" className="exp-card">
-      <div className="card-top">
-        <h3>{job.role}</h3>
-        {job.dates && <span className="dates">{job.dates}</span>}
-      </div>
-      <p>{job.summary}</p>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            id={id}
-            key="more"
-            className="more"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease }}
-          >
-            <ul>
-              {job.more.map((m) => (
-                <li key={m}>{m}</li>
-              ))}
-            </ul>
-            {job.links && (
-              <div className="link-row">
-                {job.links.map((l) => (
-                  <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label} ↗
-                  </a>
-                ))}
-              </div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <div className="card-bottom">
-        <Tags items={job.tags} />
-        <button className="more-toggle" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>
-          {open ? 'Show less' : 'Show more'}
-        </button>
-      </div>
-    </SpotlightCard>
-  );
-}
-
 export function Experience() {
   return (
-    <Section id="experience" eyebrow="04" title="Experience">
-      <div className="card-grid">
+    <Section id="experience" eyebrow="03" title="Experience">
+      <div className="card-grid exp-grid">
         {experience.map((job) => (
-          <ExperienceCard key={job.role} job={job} />
+          <SpotlightCard as="article" key={job.org} className={`exp-card ${job.summary ? '' : 'compact'}`}>
+            <p className="org">{job.org}</p>
+            <h3>{job.role}</h3>
+            {job.summary && <p className="exp-summary">{job.summary}</p>}
+          </SpotlightCard>
         ))}
       </div>
     </Section>
@@ -157,26 +133,23 @@ export function Experience() {
 
 export function Projects() {
   return (
-    <Section id="projects" eyebrow="05" title="Projects">
+    <Section id="projects" eyebrow="04" title="Projects">
       <div className="card-grid projects">
-        {projects.map((p) => (
-          <SpotlightCard
-            as="a"
-            key={p.title}
-            href={p.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-card"
-            data-cursor="view"
-          >
-            <h3>{p.title}</h3>
-            <p>{p.blurb}</p>
-            <div className="card-bottom">
-              <Tags items={p.tags} />
-              <span className="cta">{p.cta} ↗</span>
-            </div>
-          </SpotlightCard>
-        ))}
+        {projects.map((p) => {
+          const linkProps = p.href
+            ? { as: 'a', href: p.href, target: '_blank', rel: 'noopener noreferrer', 'data-cursor': 'view' }
+            : { as: 'article' };
+          return (
+            <SpotlightCard key={p.title} className="project-card" {...linkProps}>
+              <h3>{p.title}</h3>
+              <p>{p.blurb}</p>
+              <div className="card-bottom">
+                <Tags items={p.tags} />
+                {p.cta && <span className="cta">{p.cta} ↗</span>}
+              </div>
+            </SpotlightCard>
+          );
+        })}
       </div>
     </Section>
   );
@@ -184,7 +157,7 @@ export function Projects() {
 
 export function Honors() {
   return (
-    <Section id="honors" eyebrow="06" title="Honors">
+    <Section id="honors" eyebrow="05" title="Honors">
       <ol className="honors">
         {honors.map((h, i) => (
           <Item as="li" key={h.title}>
@@ -201,13 +174,33 @@ export function Honors() {
   );
 }
 
+export function Skills() {
+  return (
+    <Section id="skills" eyebrow="06" title="Skills">
+      <div className="skills-grid">
+        {Object.entries(skills).map(([group, items]) => (
+          <Item key={group}>
+            <h3 className="sub">{group}</h3>
+            <Tags items={items} />
+          </Item>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="footer">
       <span>© 2026 Monica Macaes · Growing Dreams</span>
-      <a href={links.github} target="_blank" rel="noopener noreferrer">
-        GitHub ↗
-      </a>
+      <span className="footer-links">
+        <a href={links.github} target="_blank" rel="noopener noreferrer">
+          GitHub ↗
+        </a>
+        <a href={links.linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn ↗
+        </a>
+      </span>
     </footer>
   );
 }

@@ -1,219 +1,136 @@
-// All content below is taken from Monica's current site (monicamacaes.netlify.app).
-// Edit here to update the page; the chat answers live in about-monica.json.
+// Site content. Only facts Monica provided; edit here to update the page.
+// The chat answers live in about-monica.json.
 
 export const links = {
-  linkedin: 'https://www.linkedin.com/in/monica-macaes-28a1b7321',
-  instagram: 'https://www.instagram.com/mo_macaes/',
   github: 'https://github.com/momacaes9',
+  linkedin: 'https://www.linkedin.com/in/monicamacaes',
   email: 'momacaes@unc.edu',
-  calendly: 'https://calendly.com/monicagrenadier',
   resume: 'https://drive.google.com/file/d/1qevcinwRstTqfCUYD6Q8LNl6G-UmXAla/view?usp=sharing',
-  tutoring: 'https://drive.google.com/file/d/1JbmKPq6HEnQviAwuZGD0EjHOlcPr7_NH/view',
 };
 
 export const hero = {
   first: 'Monica',
   last: 'Macaes',
   motto: 'Growing Dreams',
-  tagline: 'Economics & Data Science at UNC-Chapel Hill — researcher, builder, tutor and science writer.',
+  tagline: 'Economics & Data Science at UNC-Chapel Hill. Monetary-policy research, RL datasets, iOS apps and data tools.',
+  photo: {
+    src: '/images/monica-headshot.webp',
+    alt: 'Monica Macaes, Economics and Data Science student at UNC Chapel Hill',
+  },
 };
 
 export const about = {
   intro: [
-    'Economics & Data Science major at UNC-Chapel Hill, with a planned minor in Applied Sciences & Engineering.',
-    'Open to data science internships, research collaborations, and tutoring.',
+    'Economics & Data Science student at UNC-Chapel Hill (BS expected May 2030), studying abroad at UNSW Sydney in Spring 2027.',
+    'Native Portuguese speaker who also speaks English, Spanish, French and Italian.',
   ],
-  interests: [
-    'Economics', 'Data Science', 'Research', 'Sustainability', 'Chemistry',
-    'Engineering', 'AI', 'Scientific Writing', 'Teaching', 'Community',
+  current: [
+    'Building the dataset and oracle pod for the Infinite Policy-Based RL project at AI@UNC',
+    'Macroeconomic and monetary-policy research for UNC’s College Fed Challenge team',
+    'iOS development in Swift with Carolina App Team',
+    'A data chatbot with Supabase + n8n',
   ],
 };
 
 export const education = [
   {
     school: 'University of North Carolina at Chapel Hill',
-    detail: 'Economics & Data Science major · planned minor in Applied Sciences & Engineering',
-    note: 'Member of BRASA — Brazilian Studies Association.',
+    dates: 'Expected May 2030',
+    detail: 'BS, Economics & Data Science',
   },
   {
-    school: 'Johns Hopkins University — Engineering Innovation',
-    dates: 'Jun 29 – Jul 25, 2025',
-    detail: 'Summer program covering data analysis, chemical processes, electronics & coding, materials, ethics, finance, and statics.',
-    note: '"Mission ImPASTAble" — designed and load-tested a spaghetti-epoxy truss bridge. "Ear Buddy" — built equipment to measure hearing health with Adafruit Circuit Playground.',
-  },
-  {
-    school: 'Universidade Presbiteriana Mackenzie',
-    detail: 'Academic projects, including a group Python project on thermodynamics at the Chemical Engineering School in São Paulo.',
+    school: 'UNSW Sydney',
+    dates: 'Spring 2027',
+    detail: 'Study abroad',
   },
 ];
 
 export const skills = {
-  Languages: [
-    'Portuguese — native',
-    'English — fluent (OBLI Gold, 2025)',
-    'Spanish — B2',
-    'Italian — 5 years',
-    'French — 3 years',
-    'German — 1000+ day Duolingo streak',
-  ],
-  Tools: ['Python', 'R', 'Excel', 'Canva', 'Microsoft 365'],
+  Programming: ['Python', 'SQL', 'Swift', 'JavaScript', 'R'],
+  'Data & tools': ['pandas', 'NumPy', 'Jupyter', 'Hugging Face', 'REST APIs', 'Excel'],
+  Platforms: ['Git', 'GitHub', 'Supabase', 'n8n', 'VS Code'],
+  Spoken: ['Portuguese (native)', 'English', 'Spanish', 'French', 'Italian'],
 };
 
 export const experience = [
   {
-    role: 'Researcher',
-    dates: 'Aug 2022 – Oct 2025',
-    summary: 'Engineered a novel, sustainable innovation to optimize agricultural productivity.',
-    more: [
-      '2nd Place, Agrarian Sciences, FenaDANTE Science Fair (134 projects).',
-      "Nominated for a technical visit to 3M's innovation hub in São Paulo.",
-      'Published in the May Part 2, 2026 issue of the Curieux Journal.',
-    ],
-    tags: ['Wet Lab', 'Excel', 'Data Collection', 'Scientific Writing'],
+    org: 'Fed Challenge',
+    role: 'Investment Researcher',
+    summary: 'Macroeconomic and monetary-policy research for UNC’s College Fed Challenge team.',
   },
   {
-    role: 'Marketing Director — OSDA',
-    dates: 'Aug 2024 – Oct 2025',
-    summary: 'Designed a sustainable AI project recognized for outstanding community impact.',
-    more: [
-      'Top Special Award, ESPM United Nations SDGs Showcase, Brazil (Dec 2024).',
-      'Pitch for the Future — Global Finalist (top 2 in LATAM).',
-      "Grew OSDA's environmental-awareness community to 670+ followers.",
-    ],
-    tags: ['AI', 'UN SDGs', 'Sustainability', 'Marketing'],
-    links: [
-      { label: 'Pitch for the Future — Finalist video', href: 'https://www.youtube.com/watch?v=cUc3uAW2bVU&t=5s' },
-      { label: 'Technovation Girls — Technical video 2025', href: 'https://www.youtube.com/watch?v=zrXBs6hARxI' },
-      { label: '@one_step_drives_all', href: 'https://www.instagram.com/one_step_drives_all/' },
-    ],
+    org: 'AI@UNC',
+    role: 'RL Agent Trainer',
+    summary: 'Builds the dataset and oracle pod for the Infinite Policy-Based RL project (Hugging Face Datasets).',
   },
   {
-    role: 'Builder',
-    dates: 'Dec 2025 – Present',
-    summary: 'STARCH-LED: developing an efficient insulator for electronic circuits from a sweet-potato bioplastic formula.',
-    more: [
-      'Optimized LED electrical circuits as a sustainable solution; collected data and wrote a manuscript.',
-      'Built a group Python project on thermodynamics at the Chemical Engineering School in São Paulo (Mackenzie).',
-    ],
-    tags: ['Python', 'Bioplastics', 'Circuits', 'Research'],
+    org: 'International Consultancy Club',
+    role: 'Consultant',
+    summary: 'Client case projects; 1st place in the club’s case competition.',
   },
   {
-    role: 'Scientific Writer',
-    dates: 'Jun 2024 – Dec 2025',
-    summary: 'Writer and publisher at Veritas High School Newspaper, read in 25+ countries.',
-    more: [
-      'Wrote 8 journal articles on chemistry, engineering, and economics — demystifying misconceptions through science.',
-      'Articles reached 150+ readers each.',
-      'Lead Researcher, NSRI G16 Environmental division (3-month project).',
-    ],
-    tags: ['Writing', 'Chemistry', 'Economics', 'Engineering'],
+    org: 'Carolina App Team',
+    role: 'iOS Developer',
+    summary: 'iOS development in Swift.',
   },
   {
-    role: 'Outreach Manager — Mission Green Global',
-    summary: 'International student-led environmental organization (501(c)(3) chapter, São Paulo).',
-    more: [
-      'Collected 4,346 books in one month to donate to vulnerable students.',
-      'Created recycling, forest, and water awareness campaigns reaching 500+.',
-      'Nominated for the 3M Technical Visit to the Customer Innovation Center.',
-      'Global Youth Challenge Finalist — "AI and the Future of Work" pitch (Bronze Award).',
-    ],
-    tags: ['Nonprofit', 'AI', 'Outreach'],
-    links: [
-      { label: 'MGG document', href: 'https://drive.google.com/file/d/1-N_a58omoKt_bk5Xz-WG3lEUr1BYcS3c/view' },
-      { label: 'GYC 2026 Bronze Award pitch', href: 'https://www.youtube.com/watch?v=33FbGtiJNEM' },
-    ],
+    org: 'ViaMundi Education',
+    role: 'Co-founder',
+    summary: 'International admissions mentorship.',
   },
   {
+    org: 'Preply',
     role: 'Math Tutor',
-    summary: 'Schoolhouse (Khan Academy) and Preply — 151 Preply lessons to 22 students from 15+ countries.',
-    more: [
-      'Schoolhouse: instructed SAT Math to 6 students, improving scores by ~15%; taught STEM and humanities during finals week for 3+ years. 27 tutoring hours · 31 learners across 13 countries · 45 positive ratings.',
-      'Preply: prepared personalized material for national and international exams (200+ classes).',
-      '100% Mastery certifications: Pre-Algebra, Algebra 1, Algebra 2.',
-    ],
-    tags: ['SAT Math', 'Teaching', 'Mentoring'],
-    links: [{ label: 'Tutoring portfolio (PDF)', href: 'https://drive.google.com/file/d/1JbmKPq6HEnQviAwuZGD0EjHOlcPr7_NH/view' }],
+    summary: '200+ hours of math tutoring since Feb 2026.',
   },
   {
-    role: 'Volunteer',
-    dates: 'Jun 2021 – Dec 2024',
-    summary: 'Earned the "Generosity Award" (top 2 of ~60) selling Big Mac tickets on McHappy Day for Instituto Ronald McDonald.',
-    more: [
-      'Played piano for the elderly at Lar Santana.',
-      'Supported people with disabilities at Mão Na Massa.',
-      'Planted at the CCSP communal green roof; cooked with children with Down syndrome at Chefs Especiais.',
-    ],
-    tags: ['Community', 'Leadership', 'Empathy'],
+    org: 'BRASA (Brazilian Student Association)',
+    role: 'Operations Assistant',
   },
+  { org: 'Women in Consulting', role: 'Member' },
+  { org: 'Marathon Team', role: 'Member' },
 ];
 
 export const projects = [
   {
-    title: 'OSDA app',
-    blurb: 'Sustainable AI project recognized for outstanding community impact — try it live.',
-    tags: ['AI', 'Sustainability'],
-    href: 'https://apposda.bolt.host/',
-    cta: 'Open app',
+    title: 'Data chatbot',
+    blurb: 'A data chatbot built with Supabase and n8n.',
+    tags: ['Supabase', 'n8n'],
+    href: 'https://github.com/momacaes9/n8n',
+    cta: 'View on GitHub',
   },
   {
-    title: 'Fraude no Leite',
-    blurb: 'A physico-chemical investigation applying bromatological methods to milk quality control.',
-    tags: ['Chemistry'],
-    href: 'https://drive.google.com/file/d/1hU9kzyIbP5M50fPSAlBnqMCVEdOFKm8Z/view',
-    cta: 'Read article',
+    title: 'Creset Growth Radar',
+    blurb: '1st place, Product Build Challenge x Creset.',
+    tags: ['1st place'],
   },
   {
-    title: 'Management in the AI Era',
-    blurb: 'Award-winning article for a business management writing competition.',
-    tags: ['Management', 'AI'],
-    href: 'https://drive.google.com/file/d/1E8eK2usIyzUKsI6wV1KS59CGuQrP8lew/view',
-    cta: 'Read article',
+    title: 'Infinite Policy-Based RL',
+    blurb: 'AI@UNC project: building the dataset and oracle pod with Hugging Face Datasets.',
+    tags: ['Hugging Face', 'AI@UNC'],
   },
   {
-    title: 'Programming project report',
-    blurb: 'Group Python project on thermodynamics at the Chemical Engineering School (Mackenzie), 2026.',
-    tags: ['Python', 'Research'],
-    href: 'https://drive.google.com/file/d/1pRAkbPVF1EMBhYx_Uuyw-U_TrjXKd3UV/view',
-    cta: 'Read report',
-  },
-  {
-    title: 'Eficiência Energética e Energia Solar',
-    blurb: 'Environmental sciences project with industry partner ASP Aeroportos Paulistas.',
-    tags: ['Sustainability'],
-    href: 'https://docs.google.com/presentation/d/1HyzDdJovlX1ya_PWKaYrGhV4FMGAy1os/edit?rtpof=true&sd=true',
-    cta: 'View deck',
-  },
-  {
-    title: 'RBL Project',
-    blurb: 'Group statistics presentation (Group 3).',
-    tags: ['Statistics'],
-    href: 'https://docs.google.com/presentation/d/1M7XXSHlmUkw5KEAr3mT2r1YZYRBfsPyC/edit?usp=sharing&rtpof=true&sd=true',
-    cta: 'View deck',
+    title: 'This website',
+    blurb: 'Personal portfolio built with React and Vite, with an “Ask about Monica” chat that answers from site content only.',
+    tags: ['React', 'Vite'],
+    href: 'https://github.com/monicamacaes/monicamacaes.github.io',
+    cta: 'View source',
   },
 ];
 
 export const honors = [
-  { year: '2026', title: 'GYC — Global Youth Challenge, "AI and the Future of Work"', medal: 'Bronze · Finalist' },
-  { year: '2025', title: 'OBLI — Brazilian Olympiad of the English Language', medal: 'Gold' },
-  { year: '2025', title: 'TBC — Brazilian Tournament of Sciences', medal: 'Silver' },
-  { year: '2025', title: 'ONANO — Brazilian Olympiad of Nanotechnology', medal: 'Silver' },
-  { year: '2025', title: 'Elected Class Representative', medal: 'Leadership' },
-  { year: '2023', title: 'O2 — Ocean Olympiad', medal: 'Silver' },
-  { year: '2023', title: 'OBA — Brazilian Astronomy & Astronautics Olympiad', medal: 'Silver' },
-  { year: '2023', title: "Quimeninas — Girls' National Chemistry Olympiad", medal: 'Bronze' },
-  { year: '2023', title: 'ONC — National Science Olympiad', medal: 'Honorable Mention' },
-  { year: '2022', title: 'ONEE — National Energy Efficiency Olympiad', medal: 'Silver' },
-  { year: '2022', title: 'OBQJr — Brazilian Chemistry Olympiad Jr', medal: 'Bronze' },
-  { year: '2022', title: 'OBMEP — Brazilian Public School Math Olympiad', medal: 'Honorable Mention' },
-  { year: '—', title: '6× CISV camps — represented Brazil at the Village Program in Italy (1 month)', medal: 'Global' },
+  { year: 'Oct 2026', title: 'Product Build Challenge x Creset', medal: '1st place' },
+  { year: '', title: 'International Consultancy Club Case Competition', medal: '1st place' },
+  { year: 'Sep 2026', title: 'T-0 x Base44 $1,000 Challenge', medal: 'Finalist' },
+  { year: '2026', title: 'Global Youth Challenge', medal: 'Top 16' },
 ];
 
 export const sections = [
   { id: 'about', label: 'About' },
   { id: 'education', label: 'Education' },
-  { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'honors', label: 'Honors' },
+  { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];

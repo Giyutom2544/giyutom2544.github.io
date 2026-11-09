@@ -1,118 +1,140 @@
 {
   "name": "Monica Macaes",
-  "summary": "Monica Macaes is an Economics & Data Science major at UNC-Chapel Hill, with a planned minor in Applied Sciences & Engineering. She is a researcher, builder, tutor and science writer, with olympiad medals in chemistry, astronomy, nanotechnology and English. She is open to data science internships, research collaborations and tutoring.",
+  "greeting": "Hi! I answer questions about Monica using only what's on this site.",
+  "summary": "Monica Macaes studies Economics & Data Science at UNC-Chapel Hill (BS expected May 2030). She does monetary-policy research for the Fed Challenge team, builds RL datasets at AI@UNC, and develops iOS apps with Carolina App Team.",
   "suggestions": [
-    "What does Monica study?",
-    "What has she built?",
-    "What are her skills?",
-    "What languages does she speak?",
-    "How do I contact her?"
+    "What does she study?",
+    "What is she working on?",
+    "Skills?",
+    "Experience in 3 bullets?",
+    "How to contact her?"
   ],
-  "fallback": "I don't have that in Monica's site content, so I'd rather not guess. The best way to ask her directly is the contact form below, or email momacaes@unc.edu.",
+  "fallback": "I don't have that information, so I'd rather not guess. You can ask Monica directly at momacaes@unc.edu, on LinkedIn (linkedin.com/in/monicamacaes), or with the contact form below.",
   "topics": [
     {
       "id": "study",
-      "questions": ["What does Monica study?", "What is her major?", "Where does she go to university?", "Which college?"],
-      "keywords": ["study", "major", "minor", "university", "college", "unc", "chapel hill", "degree", "education", "school", "economics", "data science", "brasa"],
-      "answer": "Monica is majoring in Economics & Data Science at UNC-Chapel Hill, with a planned minor in Applied Sciences & Engineering. She is a member of BRASA, the Brazilian Studies Association. She also completed the Engineering Innovation summer program at Johns Hopkins University (Jun 29 – Jul 25, 2025).",
+      "questions": ["What does she study?", "What does Monica study?", "What is her major?", "Where does she go to university?"],
+      "keywords": ["study", "studies", "studying", "major", "university", "college", "unc", "chapel hill", "degree", "education", "school", "economics", "data science", "graduate", "graduation", "2030", "student"],
+      "answer": "Monica is pursuing a BS in Economics & Data Science at UNC-Chapel Hill, expected May 2030. She will study abroad at UNSW Sydney in Spring 2027.",
       "section": "education"
     },
     {
-      "id": "built",
-      "questions": ["What has she built?", "What projects has she made?", "Show me her builds"],
-      "keywords": ["built", "build", "builder", "make", "made", "create", "starch", "led", "bioplastic", "app", "prototype", "circuit", "bridge", "ear buddy"],
-      "answer": "A few things she has built:\n• STARCH-LED (Dec 2025 – present): an efficient insulator for electronic circuits made from a sweet-potato bioplastic formula, plus optimized LED circuits. She collected the data and wrote a manuscript.\n• A group Python project on thermodynamics at Mackenzie's Chemical Engineering School in São Paulo.\n• The OSDA sustainable AI project and app, recognized for outstanding community impact.\n• At Johns Hopkins: \"Mission ImPASTAble\", a spaghetti-epoxy truss bridge she designed and load-tested, and \"Ear Buddy\", equipment to measure hearing health built with an Adafruit Circuit Playground.",
-      "section": "projects"
+      "id": "abroad",
+      "questions": ["Is she studying abroad?", "What is UNSW?"],
+      "keywords": ["abroad", "unsw", "sydney", "australia", "exchange", "2027"],
+      "answer": "Monica will study abroad at UNSW Sydney in Spring 2027.",
+      "section": "education"
+    },
+    {
+      "id": "current",
+      "questions": ["What is she working on?", "What is Monica working on?", "What is she doing now?"],
+      "keywords": ["working", "currently", "current", "now", "lately", "busy", "doing"],
+      "answer": "Right now Monica is:\n• Building the dataset and oracle pod for the Infinite Policy-Based RL project at AI@UNC (Hugging Face Datasets)\n• Doing macroeconomic and monetary-policy research for UNC's College Fed Challenge team\n• Developing iOS apps in Swift with Carolina App Team\n• Building a data chatbot with Supabase + n8n",
+      "section": "experience"
     },
     {
       "id": "skills",
-      "questions": ["What are her skills?", "What tools does she use?", "Does she code?"],
-      "keywords": ["skills", "skill", "tools", "toolbox", "python", "r", "excel", "canva", "microsoft", "office", "code", "coding", "programming", "software"],
-      "answer": "Her toolbox: Python, R, Excel, Canva and Microsoft 365. Across her work she has also done data collection and analysis, scientific writing, wet-lab research, electronics, statistics and marketing.",
+      "questions": ["Skills?", "What are her skills?", "What tools does she use?", "Does she code?"],
+      "keywords": ["skills", "skill", "tools", "toolbox", "tech", "stack", "python", "sql", "swift", "javascript", "r", "pandas", "numpy", "jupyter", "excel", "git", "github", "vs code", "code", "coding", "programming"],
+      "answer": "Programming: Python, SQL, Swift, JavaScript, R.\nData & tools: pandas, NumPy, Jupyter, Hugging Face, REST APIs, Excel.\nPlatforms: Git, GitHub, Supabase, n8n, VS Code.",
       "section": "skills"
     },
     {
       "id": "languages",
-      "questions": ["What languages does she speak?", "Does she speak Portuguese?", "Is she bilingual?"],
-      "keywords": ["language", "languages", "speak", "portuguese", "english", "spanish", "italian", "french", "german", "duolingo", "fluent", "bilingual"],
-      "answer": "Monica speaks Portuguese (native) and English (fluent, OBLI Gold 2025), with Spanish at B2. She has studied Italian for 5 years and French for 3 years, and has a 1000+ day German streak on Duolingo.",
+      "questions": ["What languages does she speak?", "Does she speak Portuguese?"],
+      "keywords": ["languages", "language", "speak", "speaks", "spoken", "portuguese", "english", "spanish", "french", "italian", "fluent", "native", "brazilian"],
+      "answer": "Monica speaks Portuguese (native), English, Spanish, French and Italian.",
       "section": "skills"
     },
     {
+      "id": "experience",
+      "questions": ["Experience in 3 bullets?", "What is her experience?", "Where has she worked?"],
+      "keywords": ["experience", "experiences", "bullets", "worked", "jobs", "job", "roles", "role", "resume", "cv", "background"],
+      "answer": "• Fed Challenge, Investment Researcher: macroeconomic and monetary-policy research for UNC's College Fed Challenge team.\n• AI@UNC, RL Agent Trainer: builds the dataset and oracle pod for the Infinite Policy-Based RL project.\n• International Consultancy Club, Consultant: client case projects; 1st place in the club's case competition.\nThe Experience section lists all of her roles.",
+      "section": "experience"
+    },
+    {
       "id": "contact",
-      "questions": ["How do I contact her?", "What is her email?", "Is she on LinkedIn?", "Can I book a session?"],
-      "keywords": ["contact", "email", "reach", "message", "linkedin", "instagram", "github", "resume", "cv", "calendly", "book", "session", "hire", "internship"],
-      "answer": "You can use the contact form at the bottom of this page or email momacaes@unc.edu. She is also on LinkedIn, GitHub (momacaes9) and Instagram (@mo_macaes), and you can book a session through Calendly. She is open to data science internships, research collaborations and tutoring.",
+      "questions": ["How to contact her?", "How do I contact her?", "What is her email?", "Is she on LinkedIn?"],
+      "keywords": ["contact", "email", "mail", "reach", "message", "linkedin", "connect", "hire", "talk"],
+      "answer": "Email momacaes@unc.edu, connect on LinkedIn (linkedin.com/in/monicamacaes), see her code on GitHub (github.com/momacaes9), or use the contact form below. Her resume is linked in the Contact section.",
       "section": "contact"
     },
     {
-      "id": "research",
-      "questions": ["What research has she done?", "Has she been published?"],
-      "keywords": ["research", "researcher", "agriculture", "agricultural", "fenadante", "science fair", "published", "publication", "curieux", "journal", "3m", "lab"],
-      "answer": "As a researcher (Aug 2022 – Oct 2025), Monica engineered a novel, sustainable innovation to optimize agricultural productivity. It won 2nd place in Agrarian Sciences at the FenaDANTE Science Fair (134 projects) and was published in the May Part 2, 2026 issue of the Curieux Journal. She was also nominated for a technical visit to 3M's innovation hub in São Paulo, and was Lead Researcher in the NSRI G16 Environmental division (a 3-month project).",
+      "id": "fed",
+      "questions": ["What is the Fed Challenge?", "What does she do at Fed Challenge?"],
+      "keywords": ["fed", "federal reserve", "monetary", "policy", "macro", "macroeconomic", "investment", "researcher", "research"],
+      "answer": "Monica is an Investment Researcher with UNC's College Fed Challenge team, doing macroeconomic and monetary-policy research.",
       "section": "experience"
     },
     {
-      "id": "osda",
-      "questions": ["What is OSDA?", "What did she do as Marketing Director?"],
-      "keywords": ["osda", "marketing", "director", "sdg", "sdgs", "united nations", "espm", "pitch for the future", "technovation", "sustainability", "sustainable"],
-      "answer": "As Marketing Director of OSDA (Aug 2024 – Oct 2025), Monica designed a sustainable AI project recognized for outstanding community impact. It won the Top Special Award at the ESPM United Nations SDGs Showcase in Brazil (Dec 2024) and was a Pitch for the Future Global Finalist (top 2 in LATAM). She also grew OSDA's environmental-awareness community to 670+ followers.",
+      "id": "aiunc",
+      "questions": ["What does she do at AI@UNC?", "What is the RL project?"],
+      "keywords": ["ai", "ai unc", "rl", "reinforcement", "learning", "agent", "trainer", "dataset", "datasets", "oracle", "pod", "hugging face", "huggingface", "infinite", "machine learning", "ml"],
+      "answer": "At AI@UNC Monica is an RL Agent Trainer. She builds the dataset and oracle pod for the Infinite Policy-Based RL project, using Hugging Face Datasets.",
       "section": "experience"
     },
     {
-      "id": "jhu",
-      "questions": ["What did she do at Johns Hopkins?"],
-      "keywords": ["johns hopkins", "jhu", "hopkins", "engineering innovation", "summer program", "summer", "engineering"],
-      "answer": "Engineering Innovation at Johns Hopkins University (Jun 29 – Jul 25, 2025) was a summer program covering data analysis, chemical processes, electronics & coding, materials, ethics, finance and statics. She built the \"Mission ImPASTAble\" spaghetti-epoxy truss bridge and the \"Ear Buddy\" hearing-health device.",
+      "id": "consulting",
+      "questions": ["Does she do consulting?"],
+      "keywords": ["consulting", "consultant", "consultancy", "case", "client", "clients", "women in consulting", "icc"],
+      "answer": "Monica is a Consultant with the International Consultancy Club, working on client case projects, and won 1st place in the club's case competition. She is also a member of Women in Consulting.",
       "section": "experience"
     },
     {
-      "id": "writing",
-      "questions": ["Does she write?", "What has she written?"],
-      "keywords": ["writing", "writer", "write", "articles", "article", "newspaper", "veritas", "science writer", "scientific writer", "journalism"],
-      "answer": "As a Scientific Writer (Jun 2024 – Dec 2025), Monica wrote and published for the Veritas High School Newspaper, which is read in 25+ countries. She wrote 8 journal articles on chemistry, engineering and economics, demystifying misconceptions through science, and each reached 150+ readers. Her article \"Management in the AI Era\" also won a business management writing competition.",
+      "id": "ios",
+      "questions": ["Does she build apps?", "What is Carolina App Team?"],
+      "keywords": ["ios", "app", "apps", "iphone", "mobile", "carolina app team", "developer", "swiftui", "xcode"],
+      "answer": "Monica is an iOS Developer with Carolina App Team, working in Swift.",
       "section": "experience"
     },
     {
-      "id": "volunteer",
-      "questions": ["Does she volunteer?", "What community work has she done?"],
-      "keywords": ["volunteer", "volunteering", "community", "mchappy", "ronald mcdonald", "generosity", "piano", "elderly", "disabilities", "charity", "nonprofit"],
-      "answer": "Monica volunteered from Jun 2021 to Dec 2024. She earned the \"Generosity Award\" (top 2 of ~60) selling Big Mac tickets on McHappy Day for Instituto Ronald McDonald, played piano for the elderly at Lar Santana, supported people with disabilities at Mão Na Massa, planted at the CCSP communal green roof, and cooked with children with Down syndrome at Chefs Especiais.",
+      "id": "brasa",
+      "questions": ["What is BRASA?"],
+      "keywords": ["brasa", "brazilian student association", "operations", "brazil"],
+      "answer": "Monica is an Operations Assistant at BRASA, the Brazilian Student Association.",
       "section": "experience"
     },
     {
-      "id": "mgg",
-      "questions": ["What is Mission Green Global?", "What did she do as Outreach Manager?"],
-      "keywords": ["mission green", "mgg", "outreach", "books", "recycling", "environment", "environmental", "campaign", "global youth challenge", "gyc"],
-      "answer": "As Outreach Manager at Mission Green Global, an international student-led environmental organization (a 501(c)(3) chapter in São Paulo), Monica collected 4,346 books in one month for vulnerable students. She also created recycling, forest and water awareness campaigns that reached 500+ people. She was a Global Youth Challenge finalist with her \"AI and the Future of Work\" pitch (Bronze Award).",
+      "id": "viamundi",
+      "questions": ["What is ViaMundi?", "Did she found anything?"],
+      "keywords": ["viamundi", "via mundi", "founder", "cofounder", "co founder", "founded", "admissions", "mentorship", "mentor", "startup"],
+      "answer": "Monica co-founded ViaMundi Education, which offers international admissions mentorship.",
       "section": "experience"
     },
     {
       "id": "tutoring",
-      "questions": ["Does she tutor?", "What does she teach?"],
-      "keywords": ["tutor", "tutoring", "teach", "teaching", "math", "sat", "schoolhouse", "khan", "preply", "lessons", "algebra", "mentor", "mentoring"],
-      "answer": "Monica is a math tutor. On Schoolhouse (Khan Academy) she taught SAT Math to 6 students, improving their scores by ~15%, and taught STEM and humanities during finals week for 3+ years: 27 tutoring hours, 31 learners across 13 countries and 45 positive ratings. On Preply she has taught 151 lessons to 22 students from 15+ countries. She holds 100% Mastery certifications in Pre-Algebra, Algebra 1 and Algebra 2.",
+      "questions": ["Does she tutor?", "Does she teach math?"],
+      "keywords": ["tutor", "tutoring", "teach", "teaching", "math", "preply", "lessons", "hours"],
+      "answer": "Monica is a math tutor on Preply, with 200+ hours of tutoring since Feb 2026.",
       "section": "experience"
     },
     {
-      "id": "academic-projects",
-      "questions": ["What academic projects has she done?", "What is Fraude no Leite?"],
-      "keywords": ["academic", "mackenzie", "milk", "fraude", "leite", "rbl", "statistics", "energy", "solar", "management", "ai era", "aeroportos"],
-      "answer": "Her academic projects (Universidade Presbiteriana Mackenzie & beyond):\n• Fraude no Leite: a physico-chemical investigation applying bromatological methods to milk quality control.\n• Management in the AI Era: an award-winning article for a business management writing competition.\n• RBL Project: a group statistics presentation.\n• Eficiência Energética e Energia Solar: an environmental sciences project with industry partner ASP Aeroportos Paulistas.",
+      "id": "sports",
+      "questions": ["Does she run?"],
+      "keywords": ["marathon", "running", "run", "runner", "sport", "sports", "hobby", "hobbies"],
+      "answer": "Monica is a member of the Marathon Team.",
+      "section": "experience"
+    },
+    {
+      "id": "projects",
+      "questions": ["What has she built?", "What projects has she made?"],
+      "keywords": ["projects", "project", "built", "build", "builder", "made", "chatbot", "bot", "supabase", "n8n", "creset", "growth radar", "website", "portfolio", "site"],
+      "answer": "Her projects:\n• Data chatbot built with Supabase + n8n (github.com/momacaes9/n8n)\n• Creset Growth Radar, 1st place in the Product Build Challenge\n• Infinite Policy-Based RL at AI@UNC\n• This website",
       "section": "projects"
     },
     {
-      "id": "awards",
-      "questions": ["What awards has she won?", "Has she competed in olympiads?"],
-      "keywords": ["award", "awards", "honor", "honors", "olympiad", "olympiads", "medal", "gold", "silver", "bronze", "won", "prize", "competition", "cisv"],
-      "answer": "Highlights: Gold at OBLI (Brazilian Olympiad of the English Language, 2025); Silver at ONEE (2022), O2 Ocean Olympiad (2023), OBA Astronomy (2023), TBC Tournament of Sciences (2025) and ONANO Nanotechnology (2025); Bronze at OBQJr Chemistry (2022), Quimeninas (2023) and the Global Youth Challenge (2026, finalist); Honorable Mentions at OBMEP (2022) and ONC (2023). She was elected Class Representative in 2025 and attended 6 CISV camps, representing Brazil at the Village Program in Italy.",
+      "id": "honors",
+      "questions": ["What awards has she won?", "Honors?"],
+      "keywords": ["award", "awards", "honor", "honors", "won", "win", "prize", "competition", "competitions", "first place", "finalist", "base44", "t 0", "global youth challenge", "top 16"],
+      "answer": "• 1st place, Product Build Challenge x Creset (Oct 2026)\n• 1st place, International Consultancy Club Case Competition\n• Finalist, T-0 x Base44 $1,000 Challenge (Sep 2026)\n• Top 16, Global Youth Challenge 2026",
       "section": "honors"
     },
     {
-      "id": "tagline",
-      "questions": ["What does Growing Dreams mean?", "Who is Monica?"],
-      "keywords": ["who", "growing dreams", "tagline", "about", "herself", "introduce"],
-      "answer": "Monica Macaes describes herself as a researcher, builder, tutor and science writer, and her site carries the tagline \"Growing Dreams\". She is an Economics & Data Science major at UNC-Chapel Hill.",
+      "id": "who",
+      "questions": ["Who is Monica?", "Tell me about Monica"],
+      "keywords": ["who", "herself", "introduce", "summary", "overview"],
+      "answer": "Monica Macaes studies Economics & Data Science at UNC-Chapel Hill (BS expected May 2030). She does monetary-policy research for the Fed Challenge team, builds RL datasets at AI@UNC, and develops iOS apps with Carolina App Team.",
       "section": "about"
     }
   ]

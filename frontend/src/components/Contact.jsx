@@ -9,11 +9,9 @@ const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
 
 const contactLinks = [
   { label: 'Email', value: links.email, href: `mailto:${links.email}` },
-  { label: 'LinkedIn', href: links.linkedin },
-  { label: 'GitHub', href: links.github },
-  { label: 'Instagram', href: links.instagram },
+  { label: 'LinkedIn', value: 'in/monicamacaes', href: links.linkedin },
+  { label: 'GitHub', value: 'momacaes9', href: links.github },
   { label: 'Resume', href: links.resume },
-  { label: 'Book a session', href: links.calendly },
 ];
 
 export default function Contact() {
@@ -52,7 +50,7 @@ export default function Contact() {
   return (
     <Section id="contact" eyebrow="07" title="Contact" className="contact">
       <Item className="lede">
-        <p>Open to data science internships, research collaborations, and tutoring.</p>
+        <p>Say hello by email, on LinkedIn, or with the form below.</p>
       </Item>
       <div className="contact-grid">
         <Item as="form" className="contact-form card" onSubmit={onSubmit}>

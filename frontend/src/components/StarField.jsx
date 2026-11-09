@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import { usePageVisible, usePrefersReducedMotion } from '../lib/hooks';
+import { useTheme } from '../lib/theme';
 
 const COUNT = 900;
 
@@ -19,7 +20,7 @@ function makeStars() {
   return pos;
 }
 
-function Stars({ mouse, animate }) {
+function Stars({ mouse, animate, light }) {
   const group = useRef();
   const inner = useRef();
   const positions = useMemo(makeStars, []);
@@ -39,7 +40,14 @@ function Stars({ mouse, animate }) {
     <group ref={group}>
       <group ref={inner}>
         <Points positions={positions} stride={3} frustumCulled={false}>
-          <PointMaterial transparent color="#cfe3f5" size={0.022} sizeAttenuation depthWrite={false} opacity={0.85} />
+          <PointMaterial
+            transparent
+            color={light ? '#13294b' : '#cfe3f5'}
+            size={light ? 0.018 : 0.022}
+            sizeAttenuation
+            depthWrite={false}
+            opacity={light ? 0.45 : 0.85}
+          />
         </Points>
       </group>
     </group>
@@ -51,6 +59,7 @@ export default function StarField() {
   const visible = usePageVisible();
   const reduced = usePrefersReducedMotion();
   const animate = visible && !reduced;
+  const light = useTheme() === 'light';
 
   useEffect(() => {
     if (reduced) return;
@@ -72,7 +81,7 @@ export default function StarField() {
         // with reduced motion the scene is drawn once and stays still.
         frameloop={animate ? 'always' : reduced ? 'demand' : 'never'}
       >
-        <Stars mouse={mouse} animate={animate} />
+        <Stars mouse={mouse} animate={animate} light={light} />
       </Canvas>
     </div>
   );

@@ -4,11 +4,15 @@ import { answerQuestion, chatIntro } from '../lib/answer';
 import { usePrefersReducedMotion } from '../lib/hooks';
 import { scrollToId } from '../lib/scroll';
 
-const firstMessage = { from: 'bot', text: chatIntro.summary };
+const firstMessage = { from: 'bot', text: `${chatIntro.greeting}\n${chatIntro.summary}` };
+
+// Open by default on desktop; a small bubble on phones and tablets.
+const startsOpen = () => typeof window !== 'undefined' && window.matchMedia('(min-width: 900px)').matches;
 
 export default function Chat() {
   const reduced = usePrefersReducedMotion();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(startsOpen);
+  const userOpened = useRef(false);
   const [messages, setMessages] = useState([firstMessage]);
   const [typing, setTyping] = useState(false);
   const [input, setInput] = useState('');
@@ -23,7 +27,8 @@ export default function Chat() {
 
   useEffect(() => {
     if (!open) return;
-    inputRef.current?.focus();
+    // Focus the input only when the visitor opened the chat, not on page load.
+    if (userOpened.current) inputRef.current?.focus();
     const onKey = (e) => {
       if (e.key === 'Escape') {
         setOpen(false);
@@ -56,11 +61,16 @@ export default function Chat() {
       <button
         ref={launcherRef}
         className={`chat-launcher ${open ? 'hidden' : ''}`}
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          userOpened.current = true;
+          setOpen(true);
+        }}
         aria-haspopup="dialog"
         aria-expanded={open}
+        aria-label="Ask about Monica"
       >
-        <span className="spark" aria-hidden="true">✦</span> Ask about Monica
+        <span className="spark" aria-hidden="true">✦</span>
+        <span className="launcher-text">Ask about Monica</span>
       </button>
 
       <AnimatePresence>
@@ -78,7 +88,7 @@ export default function Chat() {
             <div className="chat-head">
               <div>
                 <strong>Ask about Monica</strong>
-                <span className="muted">Answers from her site · no AI service</span>
+                <span className="muted">Answers only from this site · no AI service</span>
               </div>
               <button className="icon-btn" onClick={() => setOpen(false)} aria-label="Close chat">
                 ×

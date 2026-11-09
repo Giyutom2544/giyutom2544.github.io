@@ -3,15 +3,9 @@ import kb from '../data/about-monica.json';
 /*
  * answerQuestion(question) -> Promise<{ text, section?, matched }>
  *
- * Today it answers locally from about-monica.json (no network, no API key).
- * To switch to a real AI later, replace the body with a call to your own
- * serverless endpoint, e.g.:
- *
- *   const res = await fetch('/api/ask', { method: 'POST', body: JSON.stringify({ question }) });
- *   return res.json();
- *
- * The endpoint holds the API key server-side. Never put a key in this repo
- * or in any VITE_* variable: those are bundled into the public site.
+ * Answers locally from about-monica.json only: no network, no API key, no AI
+ * service. Matching order: exact question, keyword overlap, then typo-tolerant
+ * fuzzy keywords. Anything else gets the polite fallback with contact links.
  */
 
 const normalize = (s) =>
@@ -100,7 +94,7 @@ export function localAnswer(question) {
 
   // 4. A greeting gets the intro instead of the fallback.
   if (GREETING.test(q)) {
-    return { text: `Hi! ${kb.summary} Try one of the suggested questions below.`, matched: true };
+    return { text: `Hi! ${kb.summary} Try one of the suggested questions.`, matched: true };
   }
 
   return { text: kb.fallback, section: 'contact', matched: false };
@@ -110,4 +104,4 @@ export async function answerQuestion(question) {
   return localAnswer(question);
 }
 
-export const chatIntro = { summary: kb.summary, suggestions: kb.suggestions };
+export const chatIntro = { greeting: kb.greeting, summary: kb.summary, suggestions: kb.suggestions };

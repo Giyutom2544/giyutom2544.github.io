@@ -1,5 +1,4 @@
 # Builds frontend/ and deploys it to GitHub Pages.
-# Inactive until this file is on main AND Settings → Pages → Source is "GitHub Actions".
 name: Deploy React site to Pages
 
 on:
@@ -32,8 +31,8 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          # Set under Settings → Secrets and variables → Actions → Variables.
-          VITE_FORMSPREE_ID: ${{ vars.VITE_FORMSPREE_ID }}
+          # Repository secret: gh secret set FORMSPREE_ID
+          VITE_FORMSPREE_ID: ${{ secrets.FORMSPREE_ID }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
